@@ -1,0 +1,151 @@
+/**
+ * Simple Accordion Block - Frontend Styles
+ * Author: Mor <mortogo321@gmail.com>
+ */
+
+.sab-accordion {
+    --sab-border-color: #e0e0e0;
+    --sab-header-bg: #f9f9f9;
+    --sab-header-bg-hover: #f0f0f0;
+    --sab-header-padding: 16px 20px;
+    --sab-content-padding: 20px;
+    --sab-border-radius: 4px;
+    --sab-transition-duration: 0.3s;
+    --sab-icon-size: 20px;
+}
+
+.sab-accordion-item {
+    border: 1px solid var(--sab-border-color);
+    border-radius: var(--sab-border-radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.sab-accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.sab-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--sab-header-padding);
+    background: var(--sab-header-bg);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    transition: background-color var(--sab-transition-duration) ease;
+}
+
+.sab-accordion-header:hover {
+    background: var(--sab-header-bg-hover);
+}
+
+.sab-accordion-header:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: -2px;
+}
+
+.sab-accordion-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0;
+    padding-right: 16px;
+}
+
+.sab-accordion-icon {
+    flex-shrink: 0;
+    width: var(--sab-icon-size);
+    height: var(--sab-icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--sab-transition-duration) ease;
+}
+
+.sab-accordion-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Chevron rotation */
+.sab-open .sab-accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Plus/Minus icon */
+.sab-accordion-icon .sab-icon-horizontal {
+    transition: transform var(--sab-transition-duration) ease,
+                opacity var(--sab-transition-duration) ease;
+}
+
+.sab-open .sab-accordion-icon .sab-icon-horizontal {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* Arrow icon rotation */
+.sab-icon-arrow {
+    transform: rotate(90deg);
+}
+
+.sab-open .sab-icon-arrow {
+    transform: rotate(-90deg);
+}
+
+/* Content */
+.sab-accordion-content {
+    overflow: hidden;
+    transition: max-height var(--sab-transition-duration) ease,
+                opacity var(--sab-transition-duration) ease;
+}
+
+.sab-accordion-content[hidden] {
+    display: block !important;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sab-open .sab-accordion-content {
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sab-accordion-content-inner {
+    padding: var(--sab-content-padding);
+    border-top: 1px solid var(--sab-border-color);
+}
+
+.sab-accordion-content-inner > *:first-child {
+    margin-top: 0;
+}
+
+.sab-accordion-content-inner > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Animations */
+@media (prefers-reduced-motion: reduce) {
+    .sab-accordion-icon,
+    .sab-accordion-content,
+    .sab-accordion-header {
+        transition: none;
+    }
+}
+
+/* Color scheme support */
+@media (prefers-color-scheme: dark) {
+    .sab-accordion {
+        --sab-border-color: #3a3a3a;
+        --sab-header-bg: #2a2a2a;
+        --sab-header-bg-hover: #333333;
+    }
+}

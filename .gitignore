@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+bun.lockb
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# WordPress
+*.log
+debug.log
+
+# Development
+.env
+
+# Note: build/ is NOT ignored - we commit pre-built files
+# so the plugin works without requiring bun/npm install

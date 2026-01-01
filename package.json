@@ -1,0 +1,37 @@
+{
+    "name": "simple-accordion-block",
+    "version": "1.0.0",
+    "description": "A lightweight, accessible accordion block for Gutenberg.",
+    "author": "Mor <mortogo321@gmail.com>",
+    "license": "GPL-2.0-or-later",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "wp-scripts build src/index.js --output-path=build && bun run build:frontend && bun run build:styles",
+        "build:frontend": "wp-scripts build src/frontend.js --output-path=build",
+        "build:styles": "bun run build:style && bun run build:editor",
+        "build:style": "postcss src/style.css -o build/style.css",
+        "build:editor": "postcss src/editor.css -o build/editor.css",
+        "start": "wp-scripts start src/index.js --output-path=build",
+        "dev": "wp-scripts start src/index.js --output-path=build",
+        "format": "wp-scripts format",
+        "lint:js": "wp-scripts lint-js",
+        "packages-update": "wp-scripts packages-update"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mortogo321/wordpress-simple-accordion-block"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^26.0.0",
+        "autoprefixer": "^10.4.16",
+        "postcss": "^8.4.31",
+        "postcss-cli": "^10.1.0"
+    },
+    "dependencies": {
+        "@wordpress/block-editor": "^12.0.0",
+        "@wordpress/blocks": "^12.0.0",
+        "@wordpress/components": "^25.0.0",
+        "@wordpress/element": "^5.0.0",
+        "@wordpress/i18n": "^4.0.0"
+    }
+}

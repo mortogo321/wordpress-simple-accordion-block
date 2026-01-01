@@ -1,0 +1,133 @@
+/**
+ * Simple Accordion Block - Editor Styles
+ * Author: Mor <mortogo321@gmail.com>
+ */
+
+/* Base styles */
+.sab-accordion {
+    --sab-border-color: #e0e0e0;
+    --sab-header-bg: #f9f9f9;
+    --sab-header-bg-hover: #f0f0f0;
+    --sab-header-padding: 16px 20px;
+    --sab-content-padding: 20px;
+    --sab-border-radius: 4px;
+    --sab-transition-duration: 0.3s;
+    --sab-icon-size: 20px;
+}
+
+.sab-accordion-item {
+    border: 1px solid var(--sab-border-color);
+    border-radius: var(--sab-border-radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.sab-accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.sab-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--sab-header-padding);
+    background: var(--sab-header-bg);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    transition: background-color var(--sab-transition-duration) ease;
+}
+
+.sab-accordion-header:hover {
+    background: var(--sab-header-bg-hover);
+}
+
+.sab-accordion-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0;
+    padding-right: 16px;
+}
+
+.sab-accordion-icon {
+    flex-shrink: 0;
+    width: var(--sab-icon-size);
+    height: var(--sab-icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--sab-transition-duration) ease;
+}
+
+.sab-accordion-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sab-open .sab-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.sab-accordion-content-inner {
+    padding: var(--sab-content-padding);
+    border-top: 1px solid var(--sab-border-color);
+}
+
+/* Editor-specific overrides */
+.sab-accordion-editor {
+    --sab-header-bg: #fff;
+    --sab-header-bg-hover: #f9f9f9;
+}
+
+.sab-accordion-editor .sab-accordion-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sab-accordion-editor .sab-accordion-title {
+    cursor: text;
+}
+
+/* Placeholder styling */
+.sab-accordion-editor .sab-accordion-title[data-empty="true"]::before {
+    content: attr(placeholder);
+    color: #757575;
+    pointer-events: none;
+}
+
+/* Selection state */
+.sab-accordion-editor .sab-accordion-item.is-selected {
+    outline: 2px solid #007cba;
+    outline-offset: -2px;
+}
+
+/* Content visible in editor when selected */
+.sab-accordion-editor .sab-accordion-item.is-selected .sab-accordion-content {
+    display: block;
+}
+
+/* Block appender styling */
+.sab-accordion-editor .block-list-appender {
+    margin-top: 16px;
+}
+
+.sab-accordion-editor .block-editor-inserter {
+    margin: 0 auto;
+}
+
+/* Inner blocks in accordion content */
+.sab-accordion-content-inner .block-editor-block-list__layout {
+    margin: 0;
+}
+
+/* Rich text focus state */
+.sab-accordion-title:focus {
+    outline: none;
+    box-shadow: none;
+}
