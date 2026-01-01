@@ -26,11 +26,11 @@ Simple Accordion Block is a single-purpose Gutenberg block that does one thing p
 
 ## Screenshots
 
-### Editor
-![Editor](screenshots/editor.png)
+*Screenshots coming soon*
 
-### Icon Styles
-Choose between Chevron, Plus/Minus, or Arrow icons.
+### Features
+- **Editor** - Easy drag-and-drop accordion building
+- **Icon Styles** - Choose between Chevron, Plus/Minus, or Arrow icons
 
 ## Installation
 
