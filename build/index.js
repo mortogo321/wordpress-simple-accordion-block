@@ -12,16 +12,8 @@
     const { createElement: el, Fragment } = wp.element;
     const { __ } = wp.i18n;
 
-    // Accordion wrapper icon
-    const accordionIcon = el('svg', {
-        xmlns: 'http://www.w3.org/2000/svg',
-        viewBox: '0 0 24 24',
-        width: 24,
-        height: 24
-    }, el('path', {
-        d: 'M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z',
-        fill: 'currentColor'
-    }));
+    // Accordion wrapper icon - using dashicon for reliability
+    const accordionIcon = 'list-view';
 
     // Chevron icon
     const chevronIcon = el('svg', {
