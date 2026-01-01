@@ -9,7 +9,6 @@
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-accordion-block
- * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 7.4
  */
@@ -152,10 +151,3 @@ function sab_get_icon_svg($style) {
     return $icons[$style] ?? $icons['chevron'];
 }
 
-/**
- * Load plugin textdomain
- */
-function sab_load_textdomain() {
-    load_plugin_textdomain('simple-accordion-block', false, dirname(plugin_basename(__FILE__)) . '/languages');
-}
-add_action('init', 'sab_load_textdomain');
